@@ -48,7 +48,7 @@ class HomeController extends Controller
 //        $title_div = $doc->getElementById('eow-title');
 //        $title = $title_div->nodeValue;
         
-        $html = 'https://www.googleapis.com/youtube/v3/videos?id='.$id.'&key=AIzaSyA3ks4bF12WD6zbmufSy8n_k-7bvlGqnb4&part=snippet';
+        $html = 'https://www.googleapis.com/youtube/v3/videos?id='.$id.'&key='.env('GOOGLE_KEY').'&part=snippet';
         $response = file_get_contents($html);
         $decoded = json_decode($response, true);
         foreach ($decoded['items'] as $items) {
